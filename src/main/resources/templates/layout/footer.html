@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="author" content="TechyDevs"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Travel</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- CSS Owl Carousel -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" th:href="@{/css/style_home.css}"/>
+</head>
+<body>
+<footer
+    class="footer-area section-bg padding-bottom-30px" th:fragment="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 responsive-column">
+                <div class="footer-item">
+                    <div class="footer-logo padding-bottom-30px">
+                        <a href="layout/index.html" class="foot__logo"><img
+                            src="/img/logo.png" alt="logo" style="width: 120px;"/></a>
+                    </div>
+                    <p class="footer__desc">Agoda.com nhà cung cấp dịch vụ du lịch
+                        trực tuyến & các dịch vụ có liên quan hàng đầu thế giới.</p>
+                    <ul class="list-items pt-3 list-unstyled">
+                        <li>Đường D1, Phường Tân Phú, Quận 9, Thành phố Hồ Chí Minh
+                        </li>
+                        <li>0919-925-302</li>
+                        <li><a class="text-decoration-none" href="#">kieukienquocvn@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 responsive-column">
+                <div class="footer-item mt-5">
+                    <h4 class="title curve-shape pb-3 margin-bottom-20px">Company</h4>
+                    <ul class="list-items list--items list-unstyled ">
+                        <li><a class="text-decoration-none" href="#">About us</a></li>
+                        <li><a class="text-decoration-none" href="#">Services</a></li>
+                        <li><a class="text-decoration-none" href="#">Jobs</a></li>
+                        <li><a class="text-decoration-none" href="#">News</a></li>
+                        <li><a class="text-decoration-none" href="#">Support</a></li>
+                        <li><a class="text-decoration-none" href="#">Advertising</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 responsive-column">
+                <div class="footer-item mt-5">
+                    <h4 class="title curve-shape pb-3 margin-bottom-20px">Other
+                        Links</h4>
+                    <ul class="list-items list--items list-unstyled">
+                        <li><a class="text-decoration-none" href="#">USA Vacation Packages</a></li>
+                        <li><a class="text-decoration-none" href="#">USA Flights</a></li>
+                        <li><a class="text-decoration-none" href="#">USA Hotels</a></li>
+                        <li><a class="text-decoration-none" href="#">USA Car Hire</a></li>
+                        <li><a class="text-decoration-none" href="#">Create an Account</a></li>
+                        <li><a class="text-decoration-none" href="#">Trizen Reviews</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 responsive-column">
+                <div class="footer-item mt-5">
+                    <h4 class="title curve-shape pb-3 margin-bottom-20px">Subscribe
+                        now</h4>
+                    <p class="footer__desc pb-3">Subscribe for latest updates &
+                        promotions</p>
+                    <div class="contact-form-action">
+                        <form action="#">
+                            <div class="input-box">
+                                <label class="label-text">Enter email address</label>
+                                <div class="form-group mb-0">
+                                    <input class="form-control" type="email" name="email"
+                                           placeholder="Email address"/>
+                                    <button class="theme-btn theme-btn-small submit-btn"
+                                            style="border: none; margin-top: -6px;"
+                                            type="submit">Go
+                                    </button>
+                                    <span class="font-size-14 pt-1"><i
+                                        class="la la-lock me-1"></i>Your information is safe with us.</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="copy-right-content d-flex">
+                    <h3 class="title font-size-15 pe-2">We Accept</h3>
+                    <img src="/img/payment-img.png" alt=""/>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="footer-social-box text-end">
+                    <ul class="social-profile py-3">
+                        <li><a href="#" class="bg-5 text-white"><i
+                            class="bi bi-facebook"></i></a></li>
+                        <li><a href="#" class="bg-6 text-white"><i
+                            class="bi bi-twitter"></i></a></li>
+                        <li><a href="#" class="bg-7 text-white"><i
+                            class="bi bi-instagram"></i></a></li>
+                        <li><a href="#" class="bg-5 text-white"><i
+                            class="bi bi-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Axios -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- JavaScript Owl Carousel -->
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<!-- JavaScript Bootstrap 5 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="/js/home_JS.js"></script>
+</body>
+</html>

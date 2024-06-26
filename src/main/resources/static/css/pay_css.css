@@ -1,0 +1,156 @@
+/* Thanh Toán */
+.payments .row {
+  margin-left: 10px;
+}
+.example-content{
+  background-color: #F48FB1;
+  width: 400px;
+}
+.nav-bank__item img{
+  width: 200px;
+}
+.payment-methods__detail{
+  margin-left: 10px;
+}
+.booktour-wrapper {
+  padding-top: 50px;
+  margin-bottom: 30px;
+}
+
+.card-detail-wp {
+  border-radius: 4px;
+}
+
+.pay-product {
+  padding: 20px 15px;
+  border-radius: 3px;
+}
+
+h3.booktour__head {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.cart-detail {
+  padding: 15px;
+}
+
+.product-avatar {
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.product-avatar img {
+  height: 164px;
+  object-fit: cover;
+}
+
+.product-detail {
+  position: relative;
+}
+
+.cart__name {
+  font-size: 20px;
+  font-weight: 600;
+  margin-right: 30px;
+}
+
+.productdetail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.productdetail-item img {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+
+.cart-arrow {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.cart-arrow img {
+  transition: all 0.3s ease;
+}
+
+.cart-arrow img.rotate {
+  transform: rotate(180deg);
+  transition: all 0.3s ease;
+}
+
+.cart-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.cart-detail__bar {
+  align-items: center;
+  padding: 15px;
+  font-size: 14px;
+
+  display: flex;
+}
+
+.cart-detail__bar.active {
+  display: none;
+}
+
+.cart-detail__bar p {
+  margin-bottom: 0;
+}
+
+.cart-detail__bar span {
+  cursor: pointer;
+}
+
+.cart__timedepart {
+  flex-basis: 18%;
+}
+
+.cart__timedepart span {
+  font-size: 15px;
+}
+
+.cart__pricelist {
+  flex-basis: 64%;
+  border-left: 1px solid #bbb;
+  border-right: 1px solid #bbb;
+  padding-left: 10px;
+}
+
+.choise-cartnumber {
+  display: flex;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.choise-cartnumber p {
+  margin-left: 10px;
+}
+.btn-block{
+  width: 100%;
+}
+@media (max-width:500px) {
+  .payments .row{
+    margin-left: -10px;
+  }
+  .form__radio{
+    margin-left: -10px;
+  }
+  .payment-methods__detail{
+    margin-left: 0px;
+  }
+  .example-content{
+    background-color: #F48FB1;
+    width: 335px;
+  }
+}

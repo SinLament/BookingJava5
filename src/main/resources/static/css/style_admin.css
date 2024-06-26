@@ -1,0 +1,42 @@
+body {
+  overflow-x: hidden;
+}
+.header{
+  position: fixed;
+}
+.sidebar {
+  position: fixed;
+  margin-top: 77px;
+}
+.content-admin{
+  background-color: #EFF2F5;
+  margin-left: 260px;
+  margin-top: 75px;
+}
+/*=== theme-btn ====*/
+.theme-btn {
+  font-size: 15px;
+  color: #fff;
+  line-height: 45px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #287dfa;
+  transition: all 0.3s;
+  position: relative;
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #287dfa;
+  font-weight: 500;
+}
+
+.theme-btn:hover {
+  background-color: #fff;
+  color: #287dfa;
+}
+
+/*=== theme-btn-small ====*/
+.theme-btn-small {
+  line-height: 35px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
