@@ -1,6 +1,7 @@
 package com.example.demo.responsitory;
 
-import com.example.demo.controller.entity.KhachHang;
+
+import com.example.demo.entity.KhachHang;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

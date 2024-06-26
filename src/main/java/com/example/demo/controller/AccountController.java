@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.controller.responsitory.KhachHangRepo;
-import com.example.demo.controller.utils.SessionService;
+import com.example.demo.responsitory.KhachHangRepo;
+import com.example.demo.utils.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

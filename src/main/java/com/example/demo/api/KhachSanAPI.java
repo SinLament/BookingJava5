@@ -1,6 +1,6 @@
 package com.example.demo.api;
-import com.example.demo.controller.entity.KhachSan;
-import com.example.demo.controller.service.KhachSanService;
+import com.example.demo.entity.KhachSan;
+import com.example.demo.service.KhachSanService;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

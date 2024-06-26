@@ -1,8 +1,9 @@
 package com.example.demo.service.serviceImpl;
 
-import com.example.demo.controller.entity.DanhGia;
-import com.example.demo.controller.Responsitori.DanhGiaRespository;
-import com.example.demo.controller.service.DanhGiaService;
+
+import com.example.demo.entity.DanhGia;
+import com.example.demo.responsitory.DanhGiaRespository;
+import com.example.demo.service.DanhGiaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

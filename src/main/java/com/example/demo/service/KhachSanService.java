@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.controller.entity.KhachSan;
+
+import com.example.demo.entity.KhachSan;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;

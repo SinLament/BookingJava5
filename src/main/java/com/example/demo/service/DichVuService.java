@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.controller.entity.DichVu;
+
+import com.example.demo.entity.DichVu;
 
 import java.util.List;
 

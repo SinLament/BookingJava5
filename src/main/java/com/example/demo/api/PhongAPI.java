@@ -1,8 +1,8 @@
 package com.example.demo.api;
 
 
-import com.example.demo.controller.entity.Phong;
-import com.example.demo.controller.service.PhongService;
+import com.example.demo.entity.Phong;
+import com.example.demo.service.PhongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

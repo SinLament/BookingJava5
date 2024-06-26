@@ -1,8 +1,8 @@
 package com.example.demo.service.serviceImpl;
 
-import com.example.demo.controller.entity.DichVu;
-import com.example.demo.controller.responsitory.DichVuRepo;
-import com.example.demo.controller.service.DichVuService;
+import com.example.demo.entity.DichVu;
+import com.example.demo.responsitory.DichVuRepo;
+import com.example.demo.service.DichVuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,8 @@
 package com.example.demo.service.serviceImpl;
 
-import com.example.demo.controller.entity.KhachHang;
-import com.example.demo.controller.responsitory.KhachHangRepo;
-import com.example.demo.controller.service.KhachHangService;
+import com.example.demo.entity.KhachHang;
+import com.example.demo.responsitory.KhachHangRepo;
+import com.example.demo.service.KhachHangService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

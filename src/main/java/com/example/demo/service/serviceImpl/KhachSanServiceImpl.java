@@ -1,8 +1,8 @@
 package com.example.demo.service.serviceImpl;
 
-import com.example.demo.controller.entity.KhachSan;
-import com.example.demo.controller.responsitory.KhachSanRepo;
-import com.example.demo.controller.service.KhachSanService;
+import com.example.demo.entity.KhachSan;
+import com.example.demo.responsitory.KhachSanRepo;
+import com.example.demo.service.KhachSanService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

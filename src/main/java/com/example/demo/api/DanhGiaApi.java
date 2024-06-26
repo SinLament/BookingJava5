@@ -1,8 +1,8 @@
 package com.example.demo.api;
 
 
-import com.example.demo.controller.entity.DanhGia;
-import com.example.demo.controller.service.DanhGiaService;
+import com.example.demo.entity.DanhGia;
+import com.example.demo.service.DanhGiaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

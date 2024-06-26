@@ -1,7 +1,7 @@
 package com.example.demo.api;
 
-import com.example.demo.controller.entity.KhachHang;
-import com.example.demo.controller.service.KhachHangService;
+import com.example.demo.entity.KhachHang;
+import com.example.demo.service.KhachHangService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,7 +1,7 @@
 package com.example.demo.api;
 
-import com.example.demo.controller.entity.KhuyenMai;
-import com.example.demo.controller.service.KhuyenMaiService;
+import com.example.demo.entity.KhuyenMai;
+import com.example.demo.service.KhuyenMaiService;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,7 @@
 package com.example.demo.api;
 
-import com.example.demo.controller.entity.DichVu;
-import com.example.demo.controller.service.DichVuService;
+import com.example.demo.entity.DichVu;
+import com.example.demo.service.DichVuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

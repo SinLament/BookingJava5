@@ -1,9 +1,11 @@
 package com.example.demo.api;
 
-import com.example.demo.controller.Entity.Account;
-import com.example.demo.controller.Service.AccountService;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import com.example.demo.entity.Account;
+import com.example.demo.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

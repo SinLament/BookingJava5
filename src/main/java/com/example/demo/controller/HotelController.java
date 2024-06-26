@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.controller.api.KhachHangAPI;
-import com.example.demo.controller.api.KhachSanAPI;
+import com.example.demo.api.KhachHangAPI;
+import com.example.demo.api.KhachSanAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

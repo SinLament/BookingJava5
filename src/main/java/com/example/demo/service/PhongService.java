@@ -1,7 +1,8 @@
 package com.example.demo.service;
 
 
-import com.example.demo.controller.entity.Phong;
+
+import com.example.demo.entity.Phong;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

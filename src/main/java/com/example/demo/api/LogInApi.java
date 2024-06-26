@@ -1,9 +1,9 @@
 package com.example.demo.api;
 
 
-import com.example.demo.controller.controller.LoginController;
-import com.example.demo.controller.entity.KhachHang;
-import com.example.demo.controller.responsitory.KhachHangRepo;
+import com.example.demo.controller.LoginController;
+import com.example.demo.entity.KhachHang;
+import com.example.demo.responsitory.KhachHangRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

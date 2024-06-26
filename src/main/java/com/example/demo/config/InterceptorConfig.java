@@ -1,7 +1,7 @@
 package com.example.demo.config;
 
-import com.example.demo.controller.utils.AuthInterceptor;
-import com.example.demo.controller.utils.GlobalInterceptor;
+import com.example.demo.utils.AuthInterceptor;
+import com.example.demo.utils.GlobalInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

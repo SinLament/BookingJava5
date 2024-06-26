@@ -1,6 +1,6 @@
 package com.example.demo.api;
 
-import com.example.demo.controller.service.AdminService;
+import com.example.demo.service.AdminService;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
