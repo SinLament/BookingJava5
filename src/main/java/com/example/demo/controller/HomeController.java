@@ -18,7 +18,7 @@ public class HomeController {
 
   @RequestMapping("/index")
   public String index() {
-    return "home";
+    return "home2";
   }
   @RequestMapping("/detail")
   public String shop_detail() {
