@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Thêm sự kiện cho nút thanh toán
+
     const btnThanhToan = document.querySelector('.thanh-toan');
     btnThanhToan.addEventListener('click', function() {
         const tbody = document.getElementById('bookingTableBody');
