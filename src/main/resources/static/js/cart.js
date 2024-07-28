@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
         try {
             const response = await axios.get('/cart/ChiTietDatPhong/get-all');
             const tableBody = document.getElementById('bookingTableBody');
-            tableBody.innerHTML = ''; // Clear the table body before appending rows
+            tableBody.innerHTML = '';
 
             response.data.data.forEach(item => {
                 const row = document.createElement('tr');
