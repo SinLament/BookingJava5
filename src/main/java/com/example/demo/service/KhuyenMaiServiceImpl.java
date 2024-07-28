@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class KhuyenMaiService {
+class KhuyenMaiServicelmpl {
   private final KhuyenMaiRepo khuyenMaiRepo;
 
-  public KhuyenMaiService(KhuyenMaiRepo khuyenMaiRepo) {
+  public KhuyenMaiServicelmpl(KhuyenMaiRepo khuyenMaiRepo) {
     this.khuyenMaiRepo = khuyenMaiRepo;
   }
 

@@ -1,17 +1,10 @@
-package com.example.demo.responsitory;
-
-
+package com.example.demo.repository;
 
 import com.example.demo.entity.KhuyenMai;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
 public interface KhuyenMaiRepo extends JpaRepository<KhuyenMai, Integer> {
-    @Override
-    List<KhuyenMai> findAll();
-    KhuyenMai save(KhuyenMai khuyenMai);
-    void deleteKhuyenMaiByMaKhuyenMai(Integer maKhuyenMai);
+    // Các phương thức tiêu chuẩn của JpaRepository sẽ được sử dụng
 }

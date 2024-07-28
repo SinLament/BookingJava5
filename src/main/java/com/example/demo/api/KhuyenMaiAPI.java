@@ -16,10 +16,10 @@ public class KhuyenMaiAPI {
 
   @GetMapping("/getAllKhuyenMai")
   public ResponseEntity<?> doGetAllKhuyenMai() {
-    Map<String, Object> result = new HashMap();
+    Map<String, Object> result = new HashMap<>();
     try {
       result.put("success", true);
-      result.put("message", "Call api succes");
+      result.put("message", "Call api success");
       result.put("data", khuyenMaiService.findAllKhuyenMai());
     } catch (Exception e) {
       result.put("success", false);
@@ -28,12 +28,13 @@ public class KhuyenMaiAPI {
     }
     return ResponseEntity.ok(result);
   }
+
   @PostMapping("/saveKhuyenMai")
   public ResponseEntity<?> saveKhuyenMai(@RequestBody KhuyenMai khuyenMai) {
-    Map<String, Object> result = new HashMap();
+    Map<String, Object> result = new HashMap<>();
     try {
       result.put("success", true);
-      result.put("message", "Call api succes");
+      result.put("message", "Call api success");
       result.put("data", khuyenMaiService.savekhuyenMai(khuyenMai));
     } catch (Exception e) {
       result.put("success", false);
@@ -42,19 +43,49 @@ public class KhuyenMaiAPI {
     }
     return ResponseEntity.ok(result);
   }
+
   @DeleteMapping("/delete-khuyen-mai")
-  public ResponseEntity<?> deleteKhuyenMai(@RequestParam("maKhuyenMai") Integer maKhuyenMai){
+  public ResponseEntity<?> deleteKhuyenMai(@RequestParam("maKhuyenMai") Integer maKhuyenMai) {
     Map<String,Object> result = new HashMap<>();
     try {
       khuyenMaiService.deleteKhuyenMaiByMaKhuyenMai(maKhuyenMai);
       result.put("success", true);
       result.put("message", "Xóa thành công");
-    }catch (Exception e){
+    } catch (Exception e) {
       result.put("success", false);
       result.put("message", "Xóa thất bại");
-
     }
     return ResponseEntity.ok(result);
   }
 
+  @GetMapping("/get-khuyenMai-by-maKM")
+  public ResponseEntity<?> getKhuyenMaiByMaKM(@RequestParam("maKM") Integer maKM) {
+    Map<String, Object> result = new HashMap<>();
+    try {
+      KhuyenMai khuyenMai = khuyenMaiService.findById(maKM);
+      result.put("success", true);
+      result.put("message", "Call api success");
+      result.put("data", khuyenMai);
+    } catch (Exception e) {
+      result.put("success", false);
+      result.put("message", "Call api fail");
+      result.put("data", null);
+    }
+    return ResponseEntity.ok(result);
+  }
+
+  @PutMapping("/updateKhuyenMai")
+  public ResponseEntity<?> updateKhuyenMai(@RequestBody KhuyenMai khuyenMai) {
+    Map<String, Object> result = new HashMap<>();
+    try {
+      result.put("success", true);
+      result.put("message", "Call api success");
+      result.put("data", khuyenMaiService.updateKhuyenMai(khuyenMai));
+    } catch (Exception e) {
+      result.put("success", false);
+      result.put("message", "Call api fail");
+      result.put("data", null);
+    }
+    return ResponseEntity.ok(result);
+  }
 }
