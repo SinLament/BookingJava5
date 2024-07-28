@@ -11,7 +11,7 @@ const getAllProduct = async () => {
           <a href="#" class="d-block">
             <img class="mt-2" src="/img/${khachsan.hinh}" style="width: 300px" alt="hotel-img">
           </a>
-          <div class="add-to-wishlist icon-element" data-bs-toggle="tooltip"
+          <div class="add-to-wishlist icon-element" data-bs-toggl e="tooltip"
                data-placement="top" aria-label="Bookmark"
                data-bs-original-title="Bookmark">
            <i class="bi bi-heart"></i>

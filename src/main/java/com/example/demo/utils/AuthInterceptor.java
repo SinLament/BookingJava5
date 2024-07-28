@@ -1,7 +1,6 @@
 package com.example.demo.utils;
 
-
-import com.example.demo.entity.KhachHang;
+import com.example.demo.controller.entity.KhachHang;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.HandlerInterceptor;
