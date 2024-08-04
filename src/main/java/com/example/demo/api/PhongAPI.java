@@ -92,4 +92,19 @@ public class PhongAPI {
         }
         return ResponseEntity.ok(result);
     }
+    @GetMapping("/search-by-so-phong")
+    public ResponseEntity<?> searchBySoPhong(@RequestParam("soPhong") String soPhong) {
+        Map<String, Object> rs = new HashMap<>();
+        try {
+            List<Phong> phongList = phongService.findBySoPhong(soPhong);
+            rs.put("status", true);
+            rs.put("message", "Call api success");
+            rs.put("data", phongList);
+        } catch (Exception ex) {
+            rs.put("status", false);
+            rs.put("message", "Call api failed");
+            rs.put("data", null);
+        }
+        return ResponseEntity.ok(rs);
+    }
 }

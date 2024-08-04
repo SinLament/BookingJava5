@@ -1,7 +1,7 @@
 package com.example.demo.service.serviceImpl;
 
 import com.example.demo.entity.Phong;
-import com.example.demo.responsitory.PhongRepo;
+import com.example.demo.repository.PhongRepo;
 import com.example.demo.service.PhongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,14 +11,17 @@ import java.util.List;
 @Service
 public class PhongImp implements PhongService {
     @Autowired
-    PhongRepo repo;
+    private PhongRepo repo;
 
     @Override
-    public List<Phong> findPhongByKhachsan(String KhachSan) {
-        return repo.findPhongByKhachsan(KhachSan);
+    public List<Phong> findPhongByKhachsan(String khachSan) {
+        return repo.findPhongByKhachsan(khachSan);
     }
 
-    public List<Phong> sortPrice(Float PriceLess)  { return repo.sortPrice(PriceLess);}
+    @Override
+    public List<Phong> sortPrice(Float priceLess) {
+        return repo.sortPrice(priceLess);
+    }
 
     @Override
     public List<Phong> findAll() {
@@ -35,11 +38,18 @@ public class PhongImp implements PhongService {
         repo.deletePhongByKhachSan_MaKhachSan(maKhachSan);
     }
 
-
     @Override
     public List<Phong> findPhongByKhachSan_MaKhachSanAndTrangThai(Integer maKhachSan, String trangThai) {
-        return repo.findPhongByTrangThaiAndAndKhachSan_MaKhachSan(trangThai,maKhachSan);
+        return repo.findPhongByTrangThaiAndKhachSan_MaKhachSan(trangThai, maKhachSan);
+    }
+
+    @Override
+    public List<Phong> findBySoPhong(String soPhong) {
+        return repo.findBySoPhong(soPhong);
+    }
+
+    @Override
+    public Phong findById(Integer id) {
+        return repo.findById(id).orElse(null);  // Thay đổi để gọi phương thức tìm phòng theo ID
     }
 }
-
-
