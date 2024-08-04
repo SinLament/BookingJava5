@@ -38,7 +38,7 @@ CREATE TABLE Phong
     Kieu         VARCHAR(50),
     Gia          Float       NOT NULL,
     Mo_ta        NVarchar(100),
-    Trang_thai   bit         not null,
+    Trang_thai  NVARCHAR(25)        not null,
     Hinh		  Nvarchar(250),
     PRIMARY KEY (Ma_phong),
     FOREIGN KEY (Ma_khach_san) REFERENCES Khach_san (Ma_khach_san),
