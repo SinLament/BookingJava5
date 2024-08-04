@@ -8,7 +8,7 @@ const getAdminKhachHang = async () => {
 
       let html = `
                 <tr>
-                    <td>${index+=1}</td>
+                    <td>${khachhang.maKhachHang}</td>
                     <td>${khachhang.username}</td>
                     <td>${khachhang.fullname}</td>
                     <td>${khachhang.gender ? "Nam" : "Nữ"}</td>
@@ -59,7 +59,91 @@ $(document).on('click', '.btn-edit', function (){
         $(`#address`).val(khachHang.address);
         $(`#email`).val(khachHang.email);
         $(`#sdt`).val(khachHang.sdt);
+        $(`#ps`).val(khachHang.password);
       })
 })
 
-//edit user
+async function saveKhachHang() {
+    const username =$('#username').val();
+    const fullname =$('#fullname').val();
+    const birthday = new Date($('#birthday').val()).toISOString().slice(0, 10);
+    const address =$('#address').val();
+    const email =$('#email').val();
+    const sdt =$('#sdt').val();
+    const ps =$('#ps').val();
+    const genderSelect = document.getElementById('gender');
+    const genderValue = genderSelect.value;
+    const gender = genderValue === 'true';
+
+    const khachHang = {
+        username: username,
+        fullname: fullname,
+        gender: gender,
+        birthday: birthday,
+        address: address,
+        email: email,
+        sdt: sdt,
+        password:ps
+    };
+    console.log("Dữ liệu khách hàng gửi đi:", khachHang);
+    try {
+        const response = await axios.post('/api-khachhang/save-khachHang', khachHang);
+        if (response.data.status) {
+            alert('Lưu khách hàng thành công');
+            resetKhachHang();
+            getAdminKhachHang();
+        } else {
+            alert('Lưu khách hàng thất bại: ' + response.data.message);
+        }
+    } catch (error) {
+        console.error('Lỗi khi lưu khách hàng:', error);
+        alert('Có lỗi xảy ra khi lưu khách hàng');
+    }
+}
+
+
+
+
+async function updateKhachHang() {
+
+    const maKH = $('#maKH').val();
+    const username =$('#username').val();
+    const fullname =$('#fullname').val();
+    const birthday = new Date($('#birthday').val()).toISOString().slice(0, 10);
+    const address =$('#address').val();
+    const email =$('#email').val();
+    const sdt =$('#sdt').val();
+    const ps =$('#ps').val();
+    const genderSelect = document.getElementById('gender');
+    const genderValue = genderSelect.value;
+    const gender = genderValue === 'true';
+
+    const khachHang = {
+        username: username,
+        fullname: fullname,
+        gender: gender,
+        birthday: birthday,
+        address: address,
+        email: email,
+        sdt: sdt,
+        password:ps
+    };
+    console.log("Dữ liệu khách hàng gửi đi:", khachHang);
+    console.log(maKH);
+    try {
+        const response = await axios.put(`/api-khachhang/update-khachhang/${maKH}`, khachHang);
+        if (response.data.status) {
+            alert('Cập nhật khách hàng thành công');
+            getAdminKhachHang();
+        } else {
+            alert('Cập nhật khách hàng thất bại: ' + response.data.message);
+        }
+    } catch (error) {
+        console.error('Lỗi khi cập nhật khách hàng:', error);
+        alert('Có lỗi xảy ra khi cập nhật khách hàng');
+    }
+}
+
+function resetKhachHang() {
+    $('form')[0].reset();
+}

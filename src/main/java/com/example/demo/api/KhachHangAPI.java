@@ -46,7 +46,7 @@ public class KhachHangAPI {
         }
         return ResponseEntity.ok(rs);
     }
-    @PostMapping("/save-khacHhang")
+    @PostMapping("/save-khachHang")
     public ResponseEntity<?> saveKhachHang(@RequestBody KhachHang khachHang){
         Map<String,Object> rs = new HashMap<>();
         try {
@@ -77,5 +77,20 @@ public class KhachHangAPI {
         }
         return ResponseEntity.ok(rs);
 
+    }
+    @PutMapping("/update-khachhang/{maKH}")
+    public ResponseEntity<?> updateKhachHang(@PathVariable Integer maKH, @RequestBody KhachHang khachHang) {
+        Map<String, Object> rs = new HashMap<>();
+        try {
+            rs.put("status", true);
+            rs.put("message", "Cập nhật khách hàng thành công");
+            rs.put("data", service.updateKhachHang(khachHang));
+        } catch (Exception ex) {
+            rs.put("status", false);
+            rs.put("message", "Cập nhật khách hàng thất bại");
+            rs.put("data", null);
+            ex.printStackTrace();
+        }
+        return ResponseEntity.ok(rs);
     }
 }

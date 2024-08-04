@@ -24,6 +24,5 @@ public class DatPhong {
     private float tongTien;
 
     @Column(name = "Trang_thai", nullable = false)
-    @Convert(converter = BooleanConverter.class)
-    private Boolean TrangThai;
+    private String TrangThai;
 }

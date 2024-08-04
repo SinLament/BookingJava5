@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AdminController {
 
-  //Quốc
+
   @Autowired
   KhachHangRepo khachHangRepo;
 
@@ -28,8 +28,9 @@ public class AdminController {
   public String index() {
     return "/admin/user-list";
   }
-  @GetMapping("/create")
-  public String getCreate() {
-    return "/admin/user-list";
+  @RequestMapping("/admin/product")
+  public String index2() {
+    return "/admin/product-list";
   }
+
 }

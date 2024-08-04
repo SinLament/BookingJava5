@@ -6,6 +6,7 @@ import com.example.demo.entity.ChiTietDatPhong;
 import com.example.demo.entity.DatPhong;
 import com.example.demo.service.ChiTietDPService;
 import com.example.demo.service.DatPhongService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

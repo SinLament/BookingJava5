@@ -1,3 +1,4 @@
+let phongData = [];
 const getRoom = async () => {
     let urlPath = window.location.pathname;
     let maKhachSan = urlPath.split('/').pop();
@@ -11,6 +12,9 @@ const getRoom = async () => {
                 return;
             }
             response.data.data.forEach(phong => {
+                const maPhong = phong.id;
+                const kieuPhong = phong.kieuPhong;
+                const gia = phong.gia.toLocaleString();
                 let html = `
                 <div class="card" style="margin-top: 10px;">  
                     <div class="d-flex mt-2">
@@ -44,8 +48,46 @@ const getRoom = async () => {
         .catch(error => {
             alert(error);
         });
+    const addToCartButtons = document.querySelector('#addToCart');
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', async function () {
+            const ngayDen =  $('#ngayDen').val();
+            const ngayTra =  $('#ngayTra').val();
+
+            if (!ngayDen || !ngayTra) {
+                alert('Vui lòng chọn cả ngày đến và ngày trả.');
+                return;
+            }
+            const den = new Date(ngayDen);
+            const tra = new Date(ngayTra);
+            if (den >= tra) {
+                alert('Ngày đến phải trước ngày trả.');
+                return;
+            }
+            const chiTietDatPhong = {
+                maDatPhong: maDatPhong,
+                maPhong: maPhong,
+                ngayDen: ngayDen,
+                ngayTra: ngayTra,
+                giaPhong: gia
+            };
+            axios.post('/cart/ChiTietDatPhong/create', chiTietDatPhong)
+                .then(response => {
+                    if (response.data.status) {
+                        alert('Thêm vào giỏ hàng thành công');
+                    } else {
+                        alert('Thêm vào giỏ hàng thất bại: ' + response.data.message);
+                    }
+                })
+                .catch(error => {
+
+                    console.error('Lỗi khi thêm vào giỏ hàng:', error);
+                    alert('Có lỗi xảy ra khi thêm vào giỏ hàng.');
+                });
+        });
+    });
 }
-// Gọi hàm getAllProduct khi trang được tải
+
 document.addEventListener('DOMContentLoaded', getRoom);
 const getHotel = async () => {
     let urlPath = window.location.pathname;
@@ -63,7 +105,6 @@ const getHotel = async () => {
             let hotel = response.data.data;
             let dichVuHtml = '';
 
-            // Duyệt qua danh sách dịch vụ và tạo HTML cho mỗi dịch vụ
             hotel.listDichVu.forEach(dichVu => {
                 dichVuHtml += `<p class="card-text">${dichVu.tenDichVu}: ${dichVu.moTa}</p>`;
             });

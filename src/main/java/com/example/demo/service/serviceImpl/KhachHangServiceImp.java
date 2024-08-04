@@ -33,5 +33,15 @@ import java.util.List;
         repo.deleteKhachHangByMaKhachHang(id);
     }
 
+    @Override
+    public KhachHang findKhachHangById(Integer maKH) {
+        return null;
+    }
+
+    @Override
+    public KhachHang updateKhachHang(KhachHang kh) {
+        return repo.save(kh);
+    }
+
 
 }

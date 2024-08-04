@@ -21,7 +21,6 @@ public class ChiTietDatPhong {
 
     private int maDatPhong;
 
-
     private int maPhong;
 
     private Date ngayDen;
