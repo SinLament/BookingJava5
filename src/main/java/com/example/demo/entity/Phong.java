@@ -34,12 +34,8 @@ public class Phong {
     @Column(name = "Mo_ta")
     private String MoTa;
 
-    @Column(name = "Suc_chua")
-    private Integer sucChua;
-
     @Column(name = "Trang_thai")
-    @Convert(converter = BooleanConverter.class)
-    private Boolean trangThai;
+    private String trangThai;
 
     @Column(name = "hinh")
     private String hinh;

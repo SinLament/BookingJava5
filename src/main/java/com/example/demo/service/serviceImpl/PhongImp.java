@@ -35,8 +35,9 @@ public class PhongImp implements PhongService {
         repo.deletePhongByKhachSan_MaKhachSan(maKhachSan);
     }
 
+
     @Override
-    public List<Phong> findPhongByKhachSan_MaKhachSanAndTrangThai(Integer maKhachSan, Boolean trangThai) {
+    public List<Phong> findPhongByKhachSan_MaKhachSanAndTrangThai(Integer maKhachSan, String trangThai) {
         return repo.findPhongByTrangThaiAndAndKhachSan_MaKhachSan(trangThai,maKhachSan);
     }
 }

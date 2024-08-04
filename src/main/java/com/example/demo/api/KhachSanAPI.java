@@ -83,7 +83,7 @@ public class KhachSanAPI {
                                                     @RequestParam("sucChua") Integer sucChua){
     Map<String,Object> result = new HashMap<>();
     try {
-      List<KhachSan> khachSans = khachSanService.findThanhPhoAndSucChua(thanhPho,sucChua);
+      List<KhachSan> khachSans = khachSanService.findThanhPho(thanhPho);
       if (khachSans.isEmpty()){
         result.put("status", true);
         result.put("message","Không tìm thấy khách sạn");

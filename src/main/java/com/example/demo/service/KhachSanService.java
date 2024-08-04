@@ -16,7 +16,7 @@ public interface KhachSanService {
   @Transactional
   KhachSan getKhachSanById(int maKhachSan);
   @Transactional
-  List<KhachSan> findThanhPhoAndSucChua(String thanhPho, int sucChua);
+  List<KhachSan> findThanhPho(String thanhPho);
   @Transactional
   KhachSan createOrUpdate(KhachSan khachSan);
   @Transactional

@@ -21,5 +21,5 @@ public interface PhongService {
     @Transactional
     void deletePhongByKhachSan_MaKhachSan(Integer maKhachSan);
 
-    List<Phong> findPhongByKhachSan_MaKhachSanAndTrangThai(Integer maKhachSan, Boolean trangThai);
+    Object findPhongByKhachSan_MaKhachSanAndTrangThai(Integer maKhachSan, String trangThai);
 }

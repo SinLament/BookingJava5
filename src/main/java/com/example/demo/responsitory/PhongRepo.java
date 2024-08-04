@@ -21,5 +21,5 @@ public interface PhongRepo extends JpaRepository<Phong, Integer> {
 
     void deletePhongByKhachSan_MaKhachSan(Integer maKhachSan);
 
-    List<Phong> findPhongByTrangThaiAndAndKhachSan_MaKhachSan(Boolean trangThai, Integer maKhachHang);
+    List<Phong> findPhongByTrangThaiAndAndKhachSan_MaKhachSan(String trangThai, Integer maKhachHang);
 }

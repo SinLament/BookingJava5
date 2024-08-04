@@ -79,7 +79,7 @@ public class PhongAPI {
         return ResponseEntity.ok(result);
     }
     @GetMapping("/find-phong-by-ma-khach-san")
-    public ResponseEntity<?> findPhongByMaKhachSan(@RequestParam("maKhachSan") Integer maKhachSan, Boolean trangThai){
+    public ResponseEntity<?> findPhongByMaKhachSan(@RequestParam("maKhachSan") Integer maKhachSan, String trangThai){
         Map<String,Object> result = new HashMap<>();
         try {
             result.put("status", true);
