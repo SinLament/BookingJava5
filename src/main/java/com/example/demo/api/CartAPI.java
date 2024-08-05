@@ -4,6 +4,7 @@ package com.example.demo.api;
 
 import com.example.demo.entity.ChiTietDatPhong;
 import com.example.demo.entity.DatPhong;
+import com.example.demo.entity.KhuyenMai;
 import com.example.demo.service.ChiTietDPService;
 import com.example.demo.service.DatPhongService;
 import jakarta.persistence.EntityNotFoundException;
@@ -73,6 +74,22 @@ public class CartAPI {
         return ResponseEntity.ok(response);
     }
 
+    @PutMapping("/DatPhong/update/{id}")
+    public ResponseEntity<?> updateDatPhong(@RequestBody DatPhong DatPhong) {
+        Map<String, Object> result = new HashMap<>();
+        try {
+            result.put("success", true);
+            result.put("message", "Call api success");
+            result.put("data", Repo.updateDatPhong(DatPhong));
+        } catch (Exception e) {
+            result.put("success", false);
+            result.put("message", "Call api fail");
+            result.put("data", null);
+        }
+        return ResponseEntity.ok(result);
+    }
+
+
     @GetMapping("/ChiTietDatPhong/get-all")
     public ResponseEntity<?> getAllChiTietDatPhong() {
         Map<String, Object> response = new HashMap<>();
@@ -121,4 +138,19 @@ public class CartAPI {
         }
         return ResponseEntity.ok(response);
     }
+    @PutMapping("/ChiTietDatPhong/update/{id}")
+    public ResponseEntity<?> updateChiTietDatPhong(@RequestBody ChiTietDatPhong ChiTietDatPhong) {
+        Map<String, Object> result = new HashMap<>();
+        try {
+            result.put("success", true);
+            result.put("message", "Call api success");
+            result.put("data", chiTietRepo.updateChiTietDatPhong(ChiTietDatPhong));
+        } catch (Exception e) {
+            result.put("success", false);
+            result.put("message", "Call api fail");
+            result.put("data", null);
+        }
+        return ResponseEntity.ok(result);
+    }
+
 }

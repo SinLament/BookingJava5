@@ -33,15 +33,36 @@
       <div class="p-5">
         <div class="titlegiohang mb-5">
           <h1 class=" fw-bold text-black">THÔNG TIN BOOKING CỦA BẠN</h1>
+          <div id="bookingCard">
+            <table class="table ">
+              <thead>
+              <tr>
+                <th scope="col">Mã Khách sạn</th>
+                <th scope="col">Mã phòng</th>
+                <th scope="col">Ngày đặt</th>
+                <th scope="col">Ngày trả</th>
+                <th scope="col">Giá</th>
+                <th scope="col">Xóa</th>
+              </tr>
+              </thead>
+              <tbody id="bookingTableBody">
+              </tbody>
+            </table>
         </div>
-        <div id="bookingCard">
 
-        </div>
         <div style="margin-left: 450px; margin-top: 100px;">
 
+
+          </div>
         </div>
-        <div class="fw-bold" style="margin-top: 200px;">
-          <a href="#"><i class="bi bi-arrow-left"></i> Quay lại trang chủ</a>
+        <div class="fw-bold d-flex justify-content-between align-items-center" style="margin-top: 200px;">
+          <div>
+            <h2 class="fw-bold text-black totalprice">Tổng tiền:</h2>
+            <a href="#"><i class="bi bi-arrow-left"></i> Quay lại trang chủ</a>
+          </div>
+          <div>
+            <a href="/payment" class="btn-text">Thanh toán</a>
+          </div>
         </div>
       </div>
     </div>

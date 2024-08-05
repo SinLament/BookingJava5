@@ -17,13 +17,14 @@ public class InterceptorConfig implements WebMvcConfigurer{
 
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
-    // TODO Auto-generated method stub
-//    registry.addInterceptor(global)
-//        .addPathPatterns("/**")
-//        .excludePathPatterns("/assets/**");
-//
-//    registry.addInterceptor(auth)
-//        .addPathPatterns("/account/**", "/admin/**", "/shop/cart", "/shop/cart/**")
-//        .excludePathPatterns("/assets/**");
+
+    registry.addInterceptor(global)
+        .addPathPatterns("/**")
+        .excludePathPatterns("/static/**");
+
+    registry.addInterceptor(auth)
+        .addPathPatterns("/account/**", "/shop/cart", "/shop/cart/**")
+        .excludePathPatterns("/static/**");
+
   }
 }

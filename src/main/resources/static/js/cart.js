@@ -7,20 +7,21 @@ document.addEventListener("DOMContentLoaded", function() {
             tableBody.innerHTML = '';
 
             response.data.data.forEach(item => {
+                const today = new Date().toISOString().slice(0, 10);
+                const ngayDenValue = item.ngayDen ? item.ngayDen : today;
+                const ngayTraValue = item.ngayTra ? item.ngayTra : today;
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${item.id}</td>
                     <td>${item.maPhong}</td>
-                    <td>${item.ngayDen}</td>
-                    <td>${item.ngayTra}</td>
+                    <td><input type="date" class="form-control" value="${ngayDenValue}"></td> 
+                    <td><input type="date" class="form-control" value="${ngayTraValue}"></td>  
                     <td>${item.giaPhong}</td>
-                    <td><button class="btn btn-danger" data-id="${item.id}">X</button></td>
+                    <td><button class="btn btn-danger btn-del" data-id="${item.id}">X</button></td>
                 `;
                 tableBody.appendChild(row);
             });
-
-            // Khởi tạo sự kiện xóa cho các nút xóa
-            const deleteButtons = document.querySelectorAll('.btn-danger');
+            const deleteButtons = document.querySelectorAll('.btn-del');
             deleteButtons.forEach(button => {
                 button.addEventListener('click', async function() {
                     const id = button.getAttribute('data-id');
@@ -45,62 +46,27 @@ document.addEventListener("DOMContentLoaded", function() {
         } catch (error) {
             console.error('Có lỗi xảy ra khi lấy dữ liệu:', error);
         }
+        updateTotalPrice();
     };
-
-    // Gọi hàm loadChiTietDatPhong khi DOMContentLoaded
-    loadChiTietDatPhong();
-
-    // Thêm sự kiện cho các nút "Đặt Ngay"
-    const addToCartButtons = document.querySelectorAll('.get-item-cart');
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', async function () {
-            const maKhachHang = button.getAttribute('data-ma-khach-hang');
-            const maKhuyenMai = button.getAttribute('data-ma-khuyen-mai');
-            const tongTien = button.getAttribute('data-tong-tien');
-            const trangThai = button.getAttribute('data-trang-thai') === 'true';
-
-            if (maKhachHang && maKhuyenMai && tongTien && typeof trangThai === 'boolean') {
-                try {
-                    const datPhong = {
-                        maKhachHang: parseInt(maKhachHang, 10),
-                        maKhuyenMai: parseInt(maKhuyenMai, 10),
-                        tongTien: parseFloat(tongTien),
-                        TrangThai: trangThai
-                    };
-
-                    const responseDatPhong = await axios.post('/cart/DatPhong/create', datPhong);
-                    const maDatPhong = responseDatPhong.data.data.id;
-
-                    const chiTietDatPhong = {
-                        maDatPhong: maDatPhong,
-                        maPhong: button.getAttribute('data-ma-phong'),
-                        ngayDen: button.getAttribute('data-ngay-den'),
-                        ngayTra: button.getAttribute('data-ngay-tra'),
-                        giaPhong: parseFloat(button.getAttribute('data-gia-phong'))
-                    };
-
-                    const responseChiTietDatPhong = await axios.post('/cart/ChiTietDatPhong/create', chiTietDatPhong);
-
-                    if (responseChiTietDatPhong.data.status) {
-                        alert('Thêm vào giỏ hàng thành công');
-                        loadChiTietDatPhong();
-                    } else {
-                        alert('Thêm vào giỏ hàng thất bại');
-                    }
-                } catch (error) {
-                    console.error('Có lỗi xảy ra khi thực hiện yêu cầu:', error);
-                    alert('Có lỗi xảy ra khi thêm đơn đặt phòng hoặc chi tiết đặt phòng');
-                }
-            } else {
-                alert('Dữ liệu không hợp lệ');
-            }
+    function updateTotalPrice() {
+        let totalPrice = 0;
+        const rows = document.querySelectorAll('#bookingTableBody tr');
+        rows.forEach(row => {
+            const giaPhong = parseFloat(row.querySelector('td:nth-child(5)').textContent);
+            totalPrice += giaPhong;
         });
-    });
 
+        // Cập nhật phần tử HTML hiển thị tổng tiền
+        const totalPriceElement = document.querySelector('.totalprice');
+        totalPriceElement.textContent = `Tổng tiền: ${totalPrice.toLocaleString()}.000 VND`;
+    }
+
+    loadChiTietDatPhong();
 
     const btnThanhToan = document.querySelector('.thanh-toan');
     btnThanhToan.addEventListener('click', function() {
         const tbody = document.getElementById('bookingTableBody');
-        tbody.innerHTML = ''; // Clear the table body
+        tbody.innerHTML = '';
+
     });
 });

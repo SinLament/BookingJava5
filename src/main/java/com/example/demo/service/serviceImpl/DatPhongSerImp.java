@@ -2,6 +2,7 @@ package com.example.demo.controller.Service.serviceImpl;
 
 
 import com.example.demo.entity.DatPhong;
+import com.example.demo.entity.KhuyenMai;
 import com.example.demo.responsitory.DatPhongRepo;
 import com.example.demo.service.DatPhongService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +25,8 @@ public class DatPhongSerImp implements DatPhongService {
         repo.deleteById(id);
     }
 
+    @Override
+    public Object updateDatPhong(DatPhong datPhong) {
+        return repo.save(datPhong);
+    }
 }

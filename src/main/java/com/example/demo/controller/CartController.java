@@ -24,30 +24,7 @@ public class CartController {
   SessionService session;
   // tt cart theo tk username
   @GetMapping("/cart")
-  public String cart(Model model) {
-
+  public String cart() {
     return "cart";
-  }
-
-  @GetMapping("/cart/add")
-  public String cart_add(Model model, @RequestParam("id") Integer id) {
-    return "shopping-cart";
-  }
-
-  @GetMapping("/cart/update")
-  public String cart_update(Model model, @RequestParam("id") Integer id, @RequestParam("qty") Integer qty) {
-
-    return "shopping-cart";
-  }
-
-  @GetMapping("/cart/delete")
-  public String cart_delete(Model model, @RequestParam("id") Integer id) {
-    return "shopping-cart";
-  }
-
-  @PostMapping("/order")
-  public String shopping_order(Model model, @RequestParam("address") String address) {
-
-    return "shopping-cart";
   }
 }

@@ -1,4 +1,4 @@
-const btnRegister = async () => {
+  const btnRegister = async () => {
   const username = $('#username').val();
   const password = $('#password').val();
   const sdt = $('#sdt').val();

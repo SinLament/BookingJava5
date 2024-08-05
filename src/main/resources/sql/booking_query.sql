@@ -46,19 +46,27 @@ CREATE TABLE Phong
 
 
 GO
+CREATE TABLE Khuyen_mai
+(
+    Ma_khuyen_mai  INT Identity (1,1),
+    Ten_khuyen_mai NVarchar(100) NOT NULL,
+    Mo_ta          NVarchar(200),
+    Ngay_bat_dau   DATE          NOT NULL,
+    Ngay_ket_thuc  DATE          NOT NULL,
+    Muc_giam       Decimal(5, 2) NOT NULL CHECK (Muc_giam >= 0 AND Muc_giam <= 100),
+    PRIMARY KEY (Ma_khuyen_mai)
+);
 CREATE TABLE Dat_phong
 (
     Ma_dat_phong  INT Identity (1,1),
     Ma_khach_hang INT,
     Ma_khuyen_mai INT,
     Tong_tien     Float NOT NULL,
-    Trang_thai    bit   not null,
+    Trang_thai    NVARCHAR(25)   not null,
     PRIMARY KEY (Ma_dat_phong),
     FOREIGN KEY (Ma_khach_hang) REFERENCES Khach_hang (Ma_khach_hang),
     FOREIGN KEY (Ma_khuyen_mai) REFERENCES Khuyen_mai (Ma_khuyen_mai)
 )
-
-drop table Dat_phong
     GO
 CREATE TABLE Danh_Gia
 (
@@ -74,16 +82,7 @@ CREATE TABLE Danh_Gia
 );
 GO
 
-CREATE TABLE Khuyen_mai
-(
-    Ma_khuyen_mai  INT Identity (1,1),
-    Ten_khuyen_mai NVarchar(100) NOT NULL,
-    Mo_ta          NVarchar(200),
-    Ngay_bat_dau   DATE          NOT NULL,
-    Ngay_ket_thuc  DATE          NOT NULL,
-    Muc_giam       Decimal(5, 2) NOT NULL CHECK (Muc_giam >= 0 AND Muc_giam <= 100),
-    PRIMARY KEY (Ma_khuyen_mai)
-);
+
 GO
 
 CREATE TABLE Dich_vu
@@ -175,17 +174,17 @@ VALUES (1, 'P101', N'Phòng VIP', 500, N'Có cửa sổ ra biển', 1,'img1.jpg'
     (3, 'P501', N'Phòng gia đình', 1200, N'Có 3 giường đơn', 1,'sp1.webp'),
     (3, 'P502', N'Phòng đôi', 700, N'Có 2 giường đôi', 0,'401099211.jpg'),
     (4, 'P101', N'Phòng VIP', 500, N'Có cửa sổ ra biển', 1,'img1.jpg'),
-    (4, 'P102', N'Phòng thường', 300, N'Có ghế salon', 0,'401099204.jpg'),
+    (4, 'P102', N'Phòng thường', 300, N'Có ghế salon', 0,'401099204.jpg');
 
 
 INSERT INTO Dich_vu (Ma_khach_san, Ten_dich_vu, Mo_ta, Gia)
 VALUES
-    (1, 'Dịch vụ ăn uống', 'Nhà hàng, quầy bar', 150.00),
-    (1, 'Dịch vụ giặt ủi', 'Giặt là nhanh chóng và tiện lợi', 50.00),
-    (2, 'Dịch vụ spa', 'Trải nghiệm nghỉ dưỡng thư giãn', 300.00),
-    (2, 'Dịch vụ hồ bơi', 'Hồ bơi rộng rãi và sạch sẽ', 80.00),
-    (3, 'Dịch vụ phòng gym', 'Phòng tập đầy đủ trang thiết bị', 100.00),
-    (3, 'Dịch vụ golf', 'Sân golf 18 lỗ với cảnh quan đẹp', 500.00);
+(1, 'Dịch vụ ăn uống', 'Nhà hàng, quầy bar', 150.00),
+(1, 'Dịch vụ giặt ủi', 'Giặt là nhanh chóng và tiện lợi', 50.00),
+(2, 'Dịch vụ spa', 'Trải nghiệm nghỉ dưỡng thư giãn', 300.00),
+(2, 'Dịch vụ hồ bơi', 'Hồ bơi rộng rãi và sạch sẽ', 80.00),
+(3, 'Dịch vụ phòng gym', 'Phòng tập đầy đủ trang thiết bị', 100.00),
+(3, 'Dịch vụ golf', 'Sân golf 18 lỗ với cảnh quan đẹp', 500.00);
 
 INSERT INTO Khach_Hang (Ten_tai_khoan, Mat_khau, Ho_ten, Gioi_tinh, Ngay_sinh, Dia_chi, Email, SDT)
 VALUES

@@ -8,4 +8,5 @@ public interface DatPhongService {
     public List<DatPhong> getAllDatPhong();
     public DatPhong saveDatPhong(DatPhong DatPhong);
     public void deleteDatPhong(Integer id);
+    Object updateDatPhong(DatPhong datPhong);
 }

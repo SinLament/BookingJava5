@@ -23,7 +23,7 @@ public class KhuyenMaiController {
 
     @Autowired
     ServletContext app;
-    @RequestMapping("/letan/khuyenmai")
+    @RequestMapping("/letan")
     public String index() {
         return "/letan/layout-le-tan";
     }

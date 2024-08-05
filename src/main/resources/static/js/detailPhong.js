@@ -1,9 +1,9 @@
-let phongData = [];
+
 const getRoom = async () => {
     let urlPath = window.location.pathname;
     let maKhachSan = urlPath.split('/').pop();
     let container = $('#getRoom');
-    await axios.get(`/api-phong/find-phong-by-ma-khach-san?maKhachSan=${maKhachSan}&trangThai=false`)
+    await axios.get(`/api-phong/find-phong-by-ma-khach-san?maKhachSan=${maKhachSan}&trangThai=0`)
         .then(response => {
             container.html('');
             console.log(response.data.data);
@@ -12,9 +12,10 @@ const getRoom = async () => {
                 return;
             }
             response.data.data.forEach(phong => {
-                const maPhong = phong.id;
-                const kieuPhong = phong.kieuPhong;
-                const gia = phong.gia.toLocaleString();
+                let maPhong = phong.id;
+                let gia = phong.gia.toLocaleString();
+                localStorage.setItem("maPhong", maPhong);
+                localStorage.setItem("gia", gia);
                 let html = `
                 <div class="card" style="margin-top: 10px;">  
                     <div class="d-flex mt-2">
@@ -35,8 +36,7 @@ const getRoom = async () => {
                         <span class="price__text">/Ngày</span>
                     </p>
             <p class="card-meta">${phong.moTa}</p>
-            <a href="/payment" class="btn-text">Đặt ngay<i
-                class="la la-angle-right"></i></a>
+            
           </div>
         </div>
       </div>
@@ -48,45 +48,54 @@ const getRoom = async () => {
         .catch(error => {
             alert(error);
         });
-    const addToCartButtons = document.querySelector('#addToCart');
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', async function () {
-            const ngayDen =  $('#ngayDen').val();
-            const ngayTra =  $('#ngayTra').val();
 
-            if (!ngayDen || !ngayTra) {
-                alert('Vui lòng chọn cả ngày đến và ngày trả.');
-                return;
-            }
-            const den = new Date(ngayDen);
-            const tra = new Date(ngayTra);
-            if (den >= tra) {
-                alert('Ngày đến phải trước ngày trả.');
-                return;
-            }
+
+}
+const addToCartButtons = document.querySelector('#addToCart');
+addToCartButtons.addEventListener('click', async function() {
+    console.log("Nút Đặt ngay được click!");
+
+    const userClient = localStorage.getItem('MaAcc');
+
+    const datPhong = {
+        maKhachHang: userClient,
+        maKhuyenMai: 0,
+        trangThai: "chưa đặt"
+    };
+    try {
+        const responseDatPhong = await axios.post('/cart/DatPhong/create', datPhong);
+        if (responseDatPhong.data.status) {
+            const maDatPhong = responseDatPhong.data.data.id;
+            const giaPhong = localStorage.getItem('gia');
+            const maPhong = localStorage.getItem('maPhong');
+
             const chiTietDatPhong = {
                 maDatPhong: maDatPhong,
                 maPhong: maPhong,
-                ngayDen: ngayDen,
-                ngayTra: ngayTra,
-                giaPhong: gia
+                giaPhong: giaPhong
             };
+
             axios.post('/cart/ChiTietDatPhong/create', chiTietDatPhong)
                 .then(response => {
                     if (response.data.status) {
                         alert('Thêm vào giỏ hàng thành công');
+                        window.location.href = '/cart';
                     } else {
                         alert('Thêm vào giỏ hàng thất bại: ' + response.data.message);
                     }
                 })
                 .catch(error => {
-
                     console.error('Lỗi khi thêm vào giỏ hàng:', error);
                     alert('Có lỗi xảy ra khi thêm vào giỏ hàng.');
                 });
-        });
-    });
-}
+        } else {
+            alert('Tạo đặt phòng thất bại: ' + responseDatPhong.data.message);
+        }
+    } catch (error) {
+        console.error('Lỗi khi tạo đặt phòng:', error);
+        alert('Có lỗi xảy ra khi tạo đặt phòng.');
+    }
+});
 
 document.addEventListener('DOMContentLoaded', getRoom);
 const getHotel = async () => {
