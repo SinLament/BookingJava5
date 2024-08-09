@@ -8,6 +8,7 @@ import com.example.demo.entity.Account;
 import com.example.demo.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,7 +39,7 @@ public class AccountAPI {
   public ResponseEntity<?> login(@RequestBody Account account) {
     Map<String, Object> response = new HashMap<>();
     try {
-      Account loggedInAccount = accountService.Login(account.getUsername(), account.getPassword());
+      UserDetails loggedInAccount = accountService.Login(account.getUsername(), account.getPassword());
       if (loggedInAccount != null) {
         response.put("status", true);
         response.put("message", "Đăng nhập thành công");

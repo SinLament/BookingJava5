@@ -25,12 +25,24 @@ public class AdminController {
   @Autowired
   ServletContext app;
   @RequestMapping("/admin/khachhang")
-  public String index() {
+  public String khachHang() {
     return "/admin/user-list";
   }
-  @RequestMapping("/admin/product")
-  public String index2() {
-    return "/admin/product-list";
+
+  @RequestMapping("/admin/khachSan")
+  public String KhachSan() {
+    return "/admin/khachSan-list";
   }
+
+  @RequestMapping("/admin/HoaDon")
+  public String hoaDon() {
+    return "/admin/HoaDon-list";
+  }
+
+  @RequestMapping("/admin/Phong")
+  public String phong() {
+    return "/admin/Phong-list";
+  }
+
 
 }

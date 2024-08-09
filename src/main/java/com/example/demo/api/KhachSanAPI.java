@@ -1,4 +1,5 @@
 package com.example.demo.api;
+import com.example.demo.entity.KhachHang;
 import com.example.demo.entity.KhachSan;
 import com.example.demo.service.KhachSanService;
 import java.util.HashMap;
@@ -7,12 +8,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/khachsan-api")
@@ -40,11 +36,11 @@ public class KhachSanAPI {
   public ResponseEntity<?> saveKhachSan(@RequestBody KhachSan KhachSan) {
     Map<String, Object> result = new HashMap();
     try {
-      result.put("success", true);
+      result.put("status", true);
       result.put("message", "Call api succes");
       result.put("data", khachSanService.savekhachSan(KhachSan));
     } catch (Exception e) {
-      result.put("success", false);
+      result.put("status", false);
       result.put("message", "Call api fail");
       result.put("data", null);
     }
@@ -101,6 +97,34 @@ public class KhachSanAPI {
     }
     return ResponseEntity.ok(result);
   }
+  @DeleteMapping("/delete-khachSan-by-maks")
+  public ResponseEntity<?> deleteKhachSan(@RequestParam("maKS") Integer maKS) {
+    Map<String, Object> rs = new HashMap<>();
+    try {
+      khachSanService.deletekhachSan(maKS);
+      rs.put("status", true);
+      rs.put("message", "Khách Sạn đã được xóa thành công");
+    } catch (Exception ex) {
+      rs.put("status", false);
+      rs.put("message", "Xóa Sạn hàng thất bại");
+    }
+    return ResponseEntity.ok(rs);
+  }
 
+  @PutMapping("/update-khachSan/{maKS}")
+  public ResponseEntity<?> updateKhachHang(@PathVariable Integer maKS, @RequestBody KhachSan KhachSan) {
+    Map<String, Object> rs = new HashMap<>();
+    try {
+      rs.put("status", true);
+      rs.put("message", "Cập nhật khách hàng thành công");
+      rs.put("data", khachSanService.updateKhachHang(KhachSan));
+    } catch (Exception ex) {
+      rs.put("status", false);
+      rs.put("message", "Cập nhật khách hàng thất bại");
+      rs.put("data", null);
+      ex.printStackTrace();
+    }
+    return ResponseEntity.ok(rs);
+  }
 
 }

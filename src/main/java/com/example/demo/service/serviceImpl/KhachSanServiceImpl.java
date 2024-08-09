@@ -46,4 +46,14 @@ public class KhachSanServiceImpl implements KhachSanService {
   public void deleteKhachSanByMaKhachSan(Integer makhachSan) {
     khachSanRepo.deleteKhachSanByMaKhachSan(makhachSan);
   }
+
+  @Override
+  public void deletekhachSan(Integer khachSanId) {
+    khachSanRepo.deleteById(khachSanId);
+  }
+
+  @Override
+  public KhachSan updateKhachHang(KhachSan khachSan) {
+    return khachSanRepo.save(khachSan);
+  }
 }

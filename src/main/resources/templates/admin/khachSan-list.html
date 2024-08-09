@@ -25,7 +25,7 @@
           class="light-mode-item navbar-brand-item"
           src="/img/logo.png" width="110px" alt="logo"></a>
       <div class=" d-flex flex-column mr-1" style="margin-left: 150px">
-        <h5 class="d-flex flex-column text-dark fw-bolder" style="margin-left: 30px">Quản lý
+        <h5 class="d-flex flex-column text-dark fw-bolder" style="margin-left: 30px">Quản lý</h5>
         <ul class="fw-bold pt-1">
           <li>
             <a href="#" class="nav-link text-secondary"> Vai trò: Admin
@@ -43,14 +43,14 @@
          style="width: 250px; height: 672px">
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-          <a href="/admin/khachhang" class="nav-link active" aria-current="page"> Khách hàng </a>
+          <a href="/admin/khachhang" class="nav-link text-white" aria-current="page"> Khách hàng </a>
         </li>
         <li>
-          <a href="/admin/khachSan" class="nav-link text-white"> Khách sạn </a>
+          <a href="/admin/khachSan" class="nav-link active"> Khách sạn </a>
         </li>
-        <li>
-          <a href="/admin/HoaDon" class="nav-link text-white"> Hóa đơn </a>
-        </li>
+<!--        <li>-->
+<!--          <a href="/admin/HoaDon" class="nav-link text-white"> Hóa đơn </a>-->
+<!--        </li>-->
         <li>
           <a href="/admin/Phong" class="nav-link text-white"> Phòng </a>
         </li>
@@ -84,56 +84,56 @@
         <div>
           <form class="row g-3 mt-1">
             <div class="col-md-6">
-              <label class="form-label">Mã khách hàng</label>
-              <input type="text" class="form-control" name="maKhachHang" id="maKH" disabled>
+              <label class="form-label">Mã Khách sạn</label>
+              <input type="text" class="form-control" name="maKhachSan" id="maKS" disabled>
             </div>
             <div class="col-md-3">
-              <label class="form-label">Tên tài khoản</label>
-              <input type="text" class="form-control" name="username" id="username">
+              <label class="form-label">Tên Khách sạn</label>
+              <input type="text" class="form-control" name="tenKhachSan" id="tenKhachSan">
             </div>
             <div class="col-md-3">
-              <label class="form-label">Mật khẩu</label>
-              <input type="text" class="form-control" name="ps" id="ps">
+              <label class="form-label">Thành phố</label>
+              <input type="text" class="form-control" name="thanhPho" id="thanhPho">
             </div>
-            <div class="col-6">
-              <label class="form-label">Họ và tên</label>
-              <input type="text" class="form-control" name="fullname" id="fullname">
-            </div>
-            <div class="col-6">
-              <label class="form-label">Giới tính</label>
-              <select class="form-select" name="gender" id="gender">
-                <option value="">Choose...</option>
-                <option value="true">Nam</option>
-                <option value="false">Nữ</option>
-              </select>
+<!--            <div class="col-6">-->
+<!--              <label class="form-label">Họ và tên</label>-->
+<!--              <input type="text" class="form-control" name="fullname" id="fullname">-->
+<!--            </div>-->
+<!--            <div class="col-6">-->
+<!--              <label class="form-label">Giới tính</label>-->
+<!--              <select class="form-select" name="gender" id="gender">-->
+<!--                <option value="">Choose...</option>-->
+<!--                <option value="true">Nam</option>-->
+<!--                <option value="false">Nữ</option>-->
+<!--              </select>-->
+<!--            </div>-->
+            <div class="col-md-4">
+              <label class="form-label">Mô tả</label>
+              <input type="text" class="form-control" name="moTa" id="moTa">
             </div>
             <div class="col-md-4">
-              <label class="form-label">Email</label>
-              <input type="text" class="form-control" name="email" id="email">
+              <label class="form-label">Đánh giá</label>
+              <input type="text" class="form-control" name="xepHang" id="xepHang">
             </div>
             <div class="col-md-4">
-              <label class="form-label">Số điện thoại</label>
-              <input type="text" class="form-control" name="sdt" id="sdt">
-            </div>
-            <div class="col-md-4">
-              <label class="form-label">DoB</label>
-              <input type="text" class="form-control" name="birthday" id="birthday">
+              <label class="form-label">Hình</label>
+              <input type="text" class="form-control" name="hinh" id="hinh">
             </div>
             <div class="col-md-12">
               <label class="form-label">Địa chỉ</label>
-              <textarea class="form-control" rows="4" name="address" id="address"></textarea>
+              <textarea class="form-control" rows="4" name="diaChi" id="diaChi"></textarea>
             </div>
           </form>
         </div>
         <div class="mt-2">
           <div class="col-12">
-            <button onclick="saveKhachHang()" class="btn btn-success col-3" type="submit">
+            <button onclick="saveKhachSan()" class="btn btn-success col-3" type="submit">
               <i class="bi bi-pencil-square"></i> Thêm
             </button>
-            <button onclick="updateKhachHang()" class="btn btn-info col-3 ms-4">
+            <button onclick="updateKhachSan()" class="btn btn-info col-3 ms-4">
               <i class="bi bi-floppy"></i> Sửa
             </button>
-            <button onclick="resetKhachHang()" class="btn btn-warning col-3 ms-4">
+            <button onclick="reset()" class="btn btn-warning col-3 ms-4">
               <i class="bi bi-arrow-counterclockwise"></i> Cài lại
             </button>
 
@@ -142,17 +142,15 @@
           <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Tên tài khoản</th>
-            <th scope="col">Họ và tên</th>
-            <th scope="col">Giới tính</th>
-            <th scope="col">Ngày sinh</th>
+            <th scope="col">Tên Khách sạn</th>
             <th scope="col">Địa chỉ</th>
-            <th scope="col">Email</th>
-            <th scope="col">SĐT</th>
+            <th scope="col">Thành phố</th>
+            <th scope="col">Mô tả</th>
+            <th scope="col">Xếp hạng</th>
             <th scope="col">Thao tác</th>
           </tr>
           </thead>
-          <tbody id="adminkhachhang">
+          <tbody id="adminKhachSan">
           </tbody>
         </table>
       </div>

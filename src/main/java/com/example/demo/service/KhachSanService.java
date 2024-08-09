@@ -21,4 +21,8 @@ public interface KhachSanService {
   KhachSan createOrUpdate(KhachSan khachSan);
   @Transactional
   void deleteKhachSanByMaKhachSan(Integer makhachSan);
+
+    void deletekhachSan(Integer khachSanId);
+
+  KhachSan updateKhachHang(KhachSan khachSan);
 }

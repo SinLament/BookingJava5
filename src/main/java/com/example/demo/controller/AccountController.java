@@ -23,10 +23,9 @@ public class AccountController {
   public String forgotPassword() {
     return "";
   }
-  //Postforgot
+
   @PostMapping("/forgot-password")
   public String forgotPassword_find(Model model, @RequestParam("username") String username) {
-
     return "";
   }
 

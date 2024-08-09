@@ -9,7 +9,7 @@
     username: username,
     password: password,
     sdt: sdt,
-    email: email
+    email: email,
   };
 
   try {
@@ -20,6 +20,9 @@
         title: 'Thành công!',
         text: responseData.message,
         icon: 'success'
+
+      }).then(() => {
+        window.location.href = '/sign-in';
       });
       console.log(responseData.data);
     } else {
