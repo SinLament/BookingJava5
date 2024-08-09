@@ -1,4 +1,4 @@
-package com.example.demo.repository;
+package com.example.demo.responsitory;
 
 import com.example.demo.entity.Phong;
 import org.springframework.data.jpa.repository.JpaRepository;

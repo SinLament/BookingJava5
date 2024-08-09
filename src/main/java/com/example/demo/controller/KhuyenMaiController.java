@@ -15,16 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class KhuyenMaiController {
 
-    @Autowired
-    KhachHangRepo khachHangRepo;
-
-    @Autowired
-    KhachSanRepo khachSanRepo;
-
-    @Autowired
-    ServletContext app;
     @RequestMapping("/letan")
-    public String index() {
+    public String letanIndex() {
         return "/letan/layout-le-tan";
     }
+    @RequestMapping("/letan/check")
+    public String letanCheck() {
+        return "/letan/layout-checkin_checkout";
+    }
+
+
 }

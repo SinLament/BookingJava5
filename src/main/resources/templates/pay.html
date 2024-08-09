@@ -148,19 +148,19 @@
               </div>
             </div>
           </div>
-          <div class="row fs-5 mb-4">
-            <label class="col-12">
-              <span class="mt-4 "> Thanh toán tại nhà
-                <input type="radio" name="TypePayment" value="0" id="payfull">
-              </span>
-            </label>
-            <label class="form__radio">
-              <span class="col-12">Thanh toán trực tiếp tại KQ-TOURS
-                <span class=" price-percent" data-format="currency"></span>
-                <input type="radio" name="TypePayment" value="1" id="paypercent">
-              </span>
-            </label>
-          </div>
+<!--          <div class="row fs-5 mb-4">-->
+<!--            <label class="col-12">-->
+<!--              <span class="mt-4 "> Thanh toán tại nhà-->
+<!--                <input type="radio" name="TypePayment" value="0" id="payfull">-->
+<!--              </span>-->
+<!--            </label>-->
+<!--            <label class="form__radio">-->
+<!--              <span class="col-12">Thanh toán trực tiếp tại KQ-TOURS-->
+<!--                <span class=" price-percent" data-format="currency"></span>-->
+<!--                <input type="radio" name="TypePayment" value="1" id="paypercent">-->
+<!--              </span>-->
+<!--            </label>-->
+<!--          </div>-->
         </div>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-12 payments">
@@ -223,11 +223,17 @@
 
 <script src="/js/home_JS.js"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded",async function() {
     const successButton = document.getElementById('successButton');
+try{
 
+}catch{
+
+}
     successButton.addEventListener('click', function() {
+      maKH=localStorage.getItem()
       alert("Thanh toán thành công")
+      axios.put("/update-TrangThai/{maKH}")
       setTimeout(() => {
         window.location.href = '/index';
       }, 200);
@@ -254,5 +260,6 @@
     }
   });
 </script>
+</div>
 </body>
 </html>

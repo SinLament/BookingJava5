@@ -4,10 +4,8 @@ package com.example.demo.api;
 
 import com.example.demo.entity.ChiTietDatPhong;
 import com.example.demo.entity.DatPhong;
-import com.example.demo.entity.KhuyenMai;
 import com.example.demo.service.ChiTietDPService;
 import com.example.demo.service.DatPhongService;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -153,4 +151,22 @@ public class CartAPI {
         return ResponseEntity.ok(result);
     }
 
+
+@PutMapping("/update-TrangThai/{maKH}")
+public ResponseEntity<?> updateTrangThai(@PathVariable Integer maDP, @RequestParam String TrangThai) {
+    Map<String, Object> rs = new HashMap<>();
+    try {
+        DatPhong Taget = Repo.getDatPhongId(maDP);
+        Taget.setTrangThai(TrangThai);
+        rs.put("status", true);
+        rs.put("message", "Cập nhật khách hàng thành công");
+        rs.put("data", Repo.updateDatPhong(Taget));
+    } catch (Exception ex) {
+        rs.put("status", false);
+        rs.put("message", "Cập nhật khách hàng thất bại");
+        rs.put("data", null);
+        ex.printStackTrace();
+    }
+    return ResponseEntity.ok(rs);
+}
 }

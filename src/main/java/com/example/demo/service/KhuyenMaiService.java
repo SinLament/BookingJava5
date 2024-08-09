@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.KhuyenMai;
-import com.example.demo.repository.KhuyenMaiRepo;
+import com.example.demo.responsitory.KhuyenMaiRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -72,7 +72,8 @@ addToCartButtons.addEventListener('click', async function() {
             const chiTietDatPhong = {
                 maDatPhong: maDatPhong,
                 maPhong: maPhong,
-                giaPhong: giaPhong
+                giaPhong: giaPhong,
+                trangThai: "chua_dat"
             };
 
             axios.post('/cart/ChiTietDatPhong/create', chiTietDatPhong)

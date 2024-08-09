@@ -9,4 +9,6 @@ public interface DatPhongService {
     public DatPhong saveDatPhong(DatPhong DatPhong);
     public void deleteDatPhong(Integer id);
     Object updateDatPhong(DatPhong datPhong);
+
+    DatPhong getDatPhongId(Integer maDP);
 }
